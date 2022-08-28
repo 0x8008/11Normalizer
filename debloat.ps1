@@ -68,21 +68,6 @@ Try{
     }
 }
 
-Try{
-    If(((Test-NetConnection www.google.com ).TestSucceeded) -eq $false){
-        Error("11Normalizer requires a working internet connection. Press any key to exit...")
-    }
-    If([System.Console]::ReadKey()){
-        Exit
-    }
-} Catch{
-    Error("Checking internet connection failed! Exception $($_). Report this on GitHub. Press any key to exit...")
-    If([System.Console]::ReadKey()){
-        Exit
-    }
-}
-
-
 Log("Creating restore point.")
 Try{
     Enable-ComputerRestore -Drive $env:SystemDrive -ErrorAction Stop
