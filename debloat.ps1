@@ -83,13 +83,13 @@ Try{
 }
 
 
-#Log("Creating restore point.")
-#Try{
-#    Enable-ComputerRestore -Drive $env:SystemDrive -ErrorAction Stop
-#    Checkpoint-Computer -Description "11Normalizer restore point" -RestorePointType "MODIFY_SETTINGS" -ErrorAction Stop
-#} Catch{
-#    Error("Restore point creation failed! Exception $($_). Report this on GitHub. Press any key to exit...")
-#}
+Log("Creating restore point.")
+Try{
+    Enable-ComputerRestore -Drive $env:SystemDrive -ErrorAction Stop
+    Checkpoint-Computer -Description "11Normalizer restore point" -RestorePointType "MODIFY_SETTINGS" -ErrorAction Stop
+} Catch{
+    Error("Restore point creation failed! Exception $($_). Report this on GitHub. Press any key to exit...")
+}
 
 Log("Loading GUI...")
 
