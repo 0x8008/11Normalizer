@@ -247,7 +247,7 @@ $RemoveBloat.Add_Click({
         if((Get-AppxPackage -Name $Bloat).NonRemovable -eq $false){
             Log("Attempting to remove $BloatApp...")
             Try{
-                Get-AppxPackage -Name $Bloat | Remove-AppxPackage -ErrorAction Stop | Out-Null
+                Get-AppxPackage -Name $BloatApp | Remove-AppxPackage -ErrorAction Stop | Out-Null
                 Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $BloatApp | Remove-AppxProvisionedPackage -Online -ErrorAction Stop
             } Catch{
                 Error("Failed to remove $BloatApp due to exception: $($_)")
