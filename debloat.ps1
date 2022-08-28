@@ -69,7 +69,7 @@ Try{
 }
 
 Try{
-    If(((Test-NetConnection www.google.com -Port 80 -InformationLevel "Detailed").TcpTestSucceeded) -eq $false){
+    If(((Test-NetConnection www.google.com ).TestSucceeded) -eq $false){
         Error("11Normalizer requires a working internet connection. Press any key to exit...")
     }
     If([System.Console]::ReadKey()){
